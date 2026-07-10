@@ -1,6 +1,6 @@
 # explaining-quantum-networks
 
-Code, cached input artifacts, and reference results for the workshop paper
+Code, cached input artifacts, and reference results for a workshop paper submission
 *"When Routes Run Out: Adversarial Co-Learning and Explainable Robustness in
 Quantum Repeater Networks"*.
 
