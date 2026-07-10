@@ -2,6 +2,7 @@
 __pycache__/
 *.pyc
 .pytest_cache/
+.idea/
 
 # Regenerable bulky run outputs (see README)
 runs/exp3_dynamic_500k/exp3_summary.json
