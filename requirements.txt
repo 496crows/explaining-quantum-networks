@@ -13,3 +13,6 @@ scipy-stubs~=1.16.3
 #   git submodule update --init
 # The editable install pulls SeQUeNCe's own deps (numpy, qutip, stim, ...).
 -e ./sequence-toolbox-SeQUeNCe
+
+# Test runner
+pytest
