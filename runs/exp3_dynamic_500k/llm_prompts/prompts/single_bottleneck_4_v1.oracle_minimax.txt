@@ -1,0 +1,144 @@
+You are interpreting one graph from a SeQUeNCe-based adversarial quantum-network game.
+
+This is an oracle/minimax interpretation prompt. Interpret only the complete-information
+minimax and DT evidence below. Do not claim a cryptographic security proof,
+deployment guarantee, unmeasured physics, or guarantees beyond these cached
+simulator outputs.
+
+## Requested output
+Write a concise Markdown response with exactly these sections:
+1. **Graph interpretation**: explain the oracle/minimax vulnerability or resilience of this graph.
+2. **Decision-tree evidence**: explain the active DT evidence in plain English.
+3. **Eve/Alice strategy evidence**: explain selected/high-probability Eve actions and Alice routes, while keeping diagnostic rows separate.
+4. **Caveats**: mention DT fidelity/R2, post-hoc in-sample scope, and no cryptographic security proof.
+5. **Rubric self-check**: one line each for target awareness, path faithfulness, feature interpretation, and no hallucinated science.
+
+Keep the response under 300 words. Use only facts, labels, and numbers present
+in this prompt. If evidence is weak, say it is weak.
+When a direct strategy probability and a DT leaf prediction disagree, report
+the disagreement instead of forcing them to agree.
+Rows with strategy probability > 0 are selected/high-probability rows. Rows
+with strategy probability = 0 are diagnostic comparison rows and must not be
+described as selected actions or selected routes.
+
+## Experiment scope
+- Backend: sequence_repeater_e91
+- Security monitor: chsh
+- Trials per payoff cell: 16
+- Online turns per condition: 500000
+- Interpretation scope: post-hoc, in-sample DT explanation over cached simulator outputs; not a cryptographic security proof.
+
+## Graph identity
+- Prompt index: 34 of 50
+- graph_id: single_bottleneck_4_v1
+- family: single_bottleneck
+- alice: a
+- bob: b
+- route_count: 4
+- oracle_status: absolute_eve_win
+- oracle_retention target value: 0
+- oracle_value: -0
+- baseline_rate: 0.8125
+
+## Family context
+- family_count: 8
+- family_retention_mean: 0
+- family_retention_min: 0
+- family_retention_max: 0
+
+## Graph structural features
+- bottleneck_node_count: 1
+- edge_disjoint_paths: 1
+- longest_hops: 3
+- max_route_overlap: 1
+- mean_edge_length_m: 469.583
+- mean_route_length_m: 1275
+- node_disjoint_paths: 1
+- num_edges: 9
+- num_nodes: 7
+- num_routes: 4
+- route_hop_ratio: 1
+- shortest_hops: 3
+
+## Compact topology edges
+- e0: a--s length_m=420 eve_eligible=True
+- e1: s--r0 length_m=472.5 eve_eligible=True
+- e2: r0--b length_m=420 eve_eligible=True
+- e3: s--r1 length_m=525 eve_eligible=True
+- e4: r1--b length_m=472.5 eve_eligible=True
+- e5: s--r2 length_m=446.25 eve_eligible=True
+- e6: r2--b length_m=525 eve_eligible=True
+- e7: s--r3 length_m=498.75 eve_eligible=True
+- e8: r3--b length_m=446.25 eve_eligible=True
+
+## Graph retention decision tree
+- target: oracle_retention
+- R2: 0.9984
+- rows/topologies: 50/50
+- active leaf for this graph: IF bottleneck_node_count > 0.500 -> predicted_avg=0 (training_rows=23)
+
+Full graph-retention DT rules:
+IF bottleneck_node_count <= 0.500 AND node_disjoint_paths <= 3.500 AND edge_disjoint_paths <= 2.500
+  -> avg_oracle_retention = 0.487  (n=6)
+
+IF bottleneck_node_count <= 0.500 AND node_disjoint_paths <= 3.500 AND edge_disjoint_paths > 2.500
+  -> avg_oracle_retention = 0.667  (n=8)
+
+IF bottleneck_node_count <= 0.500 AND node_disjoint_paths > 3.500 AND node_disjoint_paths <= 6.000
+  -> avg_oracle_retention = 0.750  (n=6)
+
+IF bottleneck_node_count <= 0.500 AND node_disjoint_paths > 3.500 AND node_disjoint_paths > 6.000
+  -> avg_oracle_retention = 0.915  (n=7)
+
+IF bottleneck_node_count > 0.500
+  -> avg_oracle_retention = 0.000  (n=23)
+
+## Eve action decision-tree evidence
+- Eve action tree target: oracle_eve_strategy_prob ; R2=0.7048
+- Expected denial tree target: action_expected_denial_under_oracle_alice ; R2=0.4344
+- The rows below are the top actions for this graph by oracle Eve probability, falling back to expected denial when needed.
+
+- action_id=edge_intercept_resend:a-s ; row_role=selected/high-probability oracle action ; oracle_eve_strategy_prob=1 ; expected_denial=1 ; active_hit_sample_count=64 ; active_hit_accepted_rate=0 ; active_hit_mean_chsh_s=-0.674266 ; active_hit_mean_qber=0.564351
+  features: is_no_attack=0, is_edge_intercept_resend=1, is_memory_degradation=0, target_route_coverage=1, target_is_bottleneck=0, num_routes=4, node_disjoint_paths=1
+  strategy-probability DT leaf: IF target_route_coverage > 0.875 AND is_edge_intercept_resend > 0.500 -> predicted_avg=1 (training_rows=19)
+  denial DT leaf: IF target_route_coverage > 0.391 AND target_route_coverage > 0.875 -> predicted_avg=1 (training_rows=54)
+- action_id=edge_intercept_resend:b-r0 ; row_role=diagnostic comparison action ; oracle_eve_strategy_prob=0 ; expected_denial=1 ; active_hit_sample_count=16 ; active_hit_accepted_rate=0 ; active_hit_mean_chsh_s=-0.704338 ; active_hit_mean_qber=0.551627
+  features: is_no_attack=0, is_edge_intercept_resend=1, is_memory_degradation=0, target_route_coverage=0.25, target_is_bottleneck=0, num_routes=4, node_disjoint_paths=1
+  strategy-probability DT leaf: IF target_route_coverage <= 0.875 AND is_memory_degradation <= 0.500 AND target_route_coverage <= 0.266 -> predicted_avg=0.001 (training_rows=735)
+  denial DT leaf: IF target_route_coverage <= 0.391 AND target_route_coverage > 0.203 AND num_routes <= 24.000 -> predicted_avg=0.467 (training_rows=290)
+- action_id=edge_intercept_resend:r0-s ; row_role=diagnostic comparison action ; oracle_eve_strategy_prob=0 ; expected_denial=1 ; active_hit_sample_count=16 ; active_hit_accepted_rate=0 ; active_hit_mean_chsh_s=-0.771701 ; active_hit_mean_qber=0.549193
+  features: is_no_attack=0, is_edge_intercept_resend=1, is_memory_degradation=0, target_route_coverage=0.25, target_is_bottleneck=0, num_routes=4, node_disjoint_paths=1
+  strategy-probability DT leaf: IF target_route_coverage <= 0.875 AND is_memory_degradation <= 0.500 AND target_route_coverage <= 0.266 -> predicted_avg=0.001 (training_rows=735)
+  denial DT leaf: IF target_route_coverage <= 0.391 AND target_route_coverage > 0.203 AND num_routes <= 24.000 -> predicted_avg=0.467 (training_rows=290)
+- action_id=memory_degradation:r0 ; row_role=diagnostic comparison action ; oracle_eve_strategy_prob=0 ; expected_denial=1 ; active_hit_sample_count=16 ; active_hit_accepted_rate=0 ; active_hit_mean_chsh_s=1.27188 ; active_hit_mean_qber=0.29338
+  features: is_no_attack=0, is_edge_intercept_resend=0, is_memory_degradation=1, target_route_coverage=0.25, target_is_bottleneck=0, num_routes=4, node_disjoint_paths=1
+  strategy-probability DT leaf: IF target_route_coverage <= 0.875 AND is_memory_degradation > 0.500 AND node_disjoint_paths <= 1.500 -> predicted_avg=0 (training_rows=246)
+  denial DT leaf: IF target_route_coverage <= 0.391 AND target_route_coverage > 0.203 AND num_routes <= 24.000 -> predicted_avg=0.467 (training_rows=290)
+- action_id=memory_degradation:s ; row_role=diagnostic comparison action ; oracle_eve_strategy_prob=0 ; expected_denial=1 ; active_hit_sample_count=64 ; active_hit_accepted_rate=0 ; active_hit_mean_chsh_s=1.13573 ; active_hit_mean_qber=0.284084
+  features: is_no_attack=0, is_edge_intercept_resend=0, is_memory_degradation=1, target_route_coverage=1, target_is_bottleneck=1, num_routes=4, node_disjoint_paths=1
+  strategy-probability DT leaf: IF target_route_coverage > 0.875 AND is_edge_intercept_resend <= 0.500 AND num_routes <= 12.000 -> predicted_avg=0 (training_rows=12)
+  denial DT leaf: IF target_route_coverage > 0.391 AND target_route_coverage > 0.875 -> predicted_avg=1 (training_rows=54)
+
+## Alice route decision-tree evidence
+- Alice route tree target: oracle_alice_strategy_prob ; R2=0.2437
+- Alice route tree R2 is 0.2437, so treat this route-tree evidence as weak/low-fidelity and report uncertainty explicitly.
+- The rows below are the top routes for this graph by oracle Alice probability, falling back to clean/worst-case key-rate evidence when needed.
+
+- route_id=route-307ad860abed4a43 ; row_role=selected/high-probability oracle route ; path=a -> s -> r0 -> b ; oracle_alice_strategy_prob=1 ; no_attack_key_rate=0.8125 ; worst_case_key_rate=0
+  features: hop_count=3, length_m=1275, length_over_shortest=1, internal_node_count=2, contains_bottleneck=1, node_disjoint_paths=1, mean_overlap_with_other_routes=1
+  route DT leaf: IF mean_overlap_with_other_routes <= 1.016 AND node_disjoint_paths <= 2.500 AND node_disjoint_paths <= 1.500 -> predicted_avg=0.207 (training_rows=58)
+- route_id=route-92c530aad13acb32 ; row_role=diagnostic comparison route ; path=a -> s -> r1 -> b ; oracle_alice_strategy_prob=0 ; no_attack_key_rate=0.8125 ; worst_case_key_rate=0
+  features: hop_count=3, length_m=1275, length_over_shortest=1, internal_node_count=2, contains_bottleneck=1, node_disjoint_paths=1, mean_overlap_with_other_routes=1
+  route DT leaf: IF mean_overlap_with_other_routes <= 1.016 AND node_disjoint_paths <= 2.500 AND node_disjoint_paths <= 1.500 -> predicted_avg=0.207 (training_rows=58)
+- route_id=route-c82da780add2efc7 ; row_role=diagnostic comparison route ; path=a -> s -> r2 -> b ; oracle_alice_strategy_prob=0 ; no_attack_key_rate=0.8125 ; worst_case_key_rate=0
+  features: hop_count=3, length_m=1275, length_over_shortest=1, internal_node_count=2, contains_bottleneck=1, node_disjoint_paths=1, mean_overlap_with_other_routes=1
+  route DT leaf: IF mean_overlap_with_other_routes <= 1.016 AND node_disjoint_paths <= 2.500 AND node_disjoint_paths <= 1.500 -> predicted_avg=0.207 (training_rows=58)
+- route_id=route-d166b6ff95d46233 ; row_role=diagnostic comparison route ; path=a -> s -> r3 -> b ; oracle_alice_strategy_prob=0 ; no_attack_key_rate=0.8125 ; worst_case_key_rate=0
+  features: hop_count=3, length_m=1275, length_over_shortest=1, internal_node_count=2, contains_bottleneck=1, node_disjoint_paths=1, mean_overlap_with_other_routes=1
+  route DT leaf: IF mean_overlap_with_other_routes <= 1.016 AND node_disjoint_paths <= 2.500 AND node_disjoint_paths <= 1.500 -> predicted_avg=0.207 (training_rows=58)
+
+## Target definitions
+- oracle_retention: oracle minimax key-rate value divided by the no-attack baseline rate.
+- oracle_eve_strategy_prob: probability assigned to an Eve action by the complete-information minimax oracle.
+- action_expected_denial_under_oracle_alice: 1 minus expected key rate when this action is evaluated against oracle Alice.
+- oracle_alice_strategy_prob: probability assigned to a route by the complete-information minimax oracle.

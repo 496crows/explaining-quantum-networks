@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Regenerable bulky run outputs (see README)
+runs/exp3_dynamic_500k/exp3_summary.json
+runs/exp3_dynamic_500k/online_runs/
+runs/exp3_dynamic_500k/payoff_matrices/
+runs/exp3_sequence/

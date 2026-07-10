@@ -1,0 +1,54 @@
+{
+  "generated_at_utc": "2026-07-09T14:15:23.664420+00:00",
+  "inputs": {
+    "config": "runs/exp3_dynamic_500k/config.json",
+    "corpus": "runs/exp3_dynamic_500k/corpus.json",
+    "dt_payload": "runs/exp3_dynamic_500k/dt/dt_payload.json",
+    "oracle_summary": "runs/exp3_dynamic_500k/oracle_summary.json",
+    "run_summary": "runs/exp3_dynamic_500k/run_summary.json"
+  },
+  "jsonl_path": "runs/exp3_dynamic_500k/llm_prompts/prompts.jsonl",
+  "notes": [
+    "Provider-neutral package only; this script does not call any API.",
+    "Each JSONL record includes prompt text plus OpenAI-compatible messages.",
+    "For Gemini, send record['prompt'] as the user content/contents text.",
+    "Prompts are post-hoc, in-sample interpretation tasks over cached simulator outputs.",
+    "Prompts do not ask the model to claim a cryptographic security proof."
+  ],
+  "out_dir": "runs/exp3_dynamic_500k/llm_prompts",
+  "prompt_count": 100,
+  "prompt_dir": "runs/exp3_dynamic_500k/llm_prompts/prompts",
+  "prompt_kind": "both",
+  "prompt_kinds": [
+    "oracle_minimax",
+    "exp3_learned"
+  ],
+  "schema_version": 1,
+  "source_run_dir": "runs/exp3_dynamic_500k",
+  "tree_status": {
+    "action_expected_denial_under_oracle_alice": {
+      "num_rows": 1501,
+      "num_topologies": 50,
+      "r2_score": 0.4344,
+      "target": "action_expected_denial_under_oracle_alice"
+    },
+    "action_oracle_eve_strategy_prob": {
+      "num_rows": 1501,
+      "num_topologies": 50,
+      "r2_score": 0.7048,
+      "target": "oracle_eve_strategy_prob"
+    },
+    "graph_oracle_retention": {
+      "num_rows": 50,
+      "num_topologies": 50,
+      "r2_score": 0.9984,
+      "target": "oracle_retention"
+    },
+    "route_oracle_alice_strategy_prob": {
+      "num_rows": 714,
+      "num_topologies": 50,
+      "r2_score": 0.2437,
+      "target": "oracle_alice_strategy_prob"
+    }
+  }
+}

@@ -1,0 +1,436 @@
+{
+  "alice_acceptance_rule": "chsh_only",
+  "backend": "sequence_repeater_e91",
+  "baseline_health_path": "runs/exp3_dynamic_500k/baseline_health.json",
+  "corpus": {
+    "metadata": {
+      "corpus_base_edge_length_m": 400.0,
+      "corpus_edge_length_step_m": 25.0,
+      "families": {
+        "deep_bottleneck": 4,
+        "deep_parallel": 4,
+        "disjoint_parallel": 8,
+        "layered_parallel": 7,
+        "length_variant": 6,
+        "multi_bottleneck": 7,
+        "single_bottleneck": 8,
+        "wheatstone_chain": 6
+      },
+      "generated_by": "sequence_game.experiments.exp3_sequence.corpus.build_graph_cases",
+      "graph_count": 50,
+      "graph_seed": 20260708,
+      "max_graphs_requested": 50,
+      "max_node_disjoint_paths": 32.0,
+      "max_route_hops": 7,
+      "max_route_hops_requested": 7,
+      "max_routes_per_graph": 32,
+      "max_routes_requested": 32,
+      "mean_route_length_m": 2084.453781512605,
+      "normalized_at_utc": "2026-07-08T18:16:13.318486+00:00",
+      "normalized_by": "scripts/normalize_exp3_sequence_corpus.py",
+      "note": "fixed SQLite corpus; exp3_sequence_results.py does not regenerate graph cases at runtime",
+      "route_count": 714,
+      "route_edge_lengths_are_canonical_for_sequence_runtime": true,
+      "route_length_profile": "standard_by_hop_count",
+      "route_length_profiles_m": {
+        "1": [
+          400.0
+        ],
+        "2": [
+          400.0,
+          425.0
+        ],
+        "3": [
+          400.0,
+          425.0,
+          450.0
+        ],
+        "4": [
+          400.0,
+          425.0,
+          450.0,
+          475.0
+        ],
+        "5": [
+          400.0,
+          425.0,
+          450.0,
+          475.0,
+          500.0
+        ],
+        "6": [
+          400.0,
+          425.0,
+          450.0,
+          475.0,
+          500.0,
+          525.0
+        ],
+        "7": [
+          400.0,
+          425.0,
+          450.0,
+          475.0,
+          500.0,
+          525.0,
+          550.0
+        ]
+      },
+      "route_length_vectors_normalized": true,
+      "runtime_case_source": "sequence_game.experiments.exp3_sequence.corpus.load_graph_cases_from_sqlite",
+      "schema_version": 1
+    },
+    "path": "/home/brennan/PycharmProjects/SeQUeNCe/sequence_game/experiments/exp3_sequence/corpus.sqlite",
+    "source": "sqlite",
+    "summary": {
+      "families": {
+        "deep_bottleneck": 4,
+        "deep_parallel": 4,
+        "disjoint_parallel": 8,
+        "layered_parallel": 7,
+        "length_variant": 6,
+        "multi_bottleneck": 7,
+        "single_bottleneck": 8,
+        "wheatstone_chain": 6
+      },
+      "graph_count": 50,
+      "max_node_disjoint_paths": 32.0,
+      "max_route_hops": 7,
+      "max_routes_per_graph": 32,
+      "mean_route_length_m": 2084.453781512605,
+      "route_count": 714
+    }
+  },
+  "dt_artifact_paths": {
+    "action_strategy": "runs/exp3_dynamic_500k/dt/action_strategy_dt.json",
+    "graph_value": "runs/exp3_dynamic_500k/dt/graph_value_dt.json",
+    "route_strategy": "runs/exp3_dynamic_500k/dt/route_strategy_dt.json"
+  },
+  "dt_payload_path": "runs/exp3_dynamic_500k/dt/dt_payload.json",
+  "exp3_schedule": {
+    "alice": {
+      "eta_c": 1.0,
+      "gamma_max": 0.2,
+      "t0": 10000.0
+    },
+    "eve": {
+      "eta_c": 1.0,
+      "gamma_max": 0.2,
+      "t0": 10000.0
+    },
+    "mode": "anytime"
+  },
+  "exp3_summary_path": "runs/exp3_dynamic_500k/exp3_summary.json",
+  "figures": [
+    "runs/exp3_dynamic_500k/figures/retention_by_family.png",
+    "runs/exp3_dynamic_500k/figures/retention_vs_node_disjoint_paths.png",
+    "runs/exp3_dynamic_500k/figures/oracle_vs_exp3_retention.png",
+    "runs/exp3_dynamic_500k/figures/exploitability_curves.png",
+    "runs/exp3_dynamic_500k/figures/selected_graph_exp3_convergence.png",
+    "runs/exp3_dynamic_500k/figures/eve_strategy_heatmap.png",
+    "runs/exp3_dynamic_500k/figures/alice_strategy_heatmap.png",
+    "runs/exp3_dynamic_500k/figures/outcome_mix_by_family.png",
+    "runs/exp3_dynamic_500k/figures/attack_chsh_qber_by_hop.png"
+  ],
+  "graph_count": 50,
+  "online_turns": 500000,
+  "oracle_summary_path": "runs/exp3_dynamic_500k/oracle_summary.json",
+  "out_dir": "runs/exp3_dynamic_500k",
+  "repo": {
+    "git_commit": "9c51aee1ca441d849427e17d1fcd88265822baf1",
+    "git_status_short": ""
+  },
+  "reused_components": [
+    "sequence_game.experiments.exp3_sequence.corpus.load_graph_cases_from_sqlite",
+    "sequence_game.corpus.runner.corpus_candidate_routes (fixed corpus artifact build)",
+    "sequence_game.protocol.repeater_trial.run_fixed_repeater_chsh_trial",
+    "sequence_game.protocol.repeater_trial.run_fixed_repeater_e91_trial",
+    "sequence_game.corpus.e91_runtime_game._default_models",
+    "sequence_game.corpus.e91_runtime_game._multiplexed_memory_efficiency",
+    "sequence_game.game_theory.Exp3",
+    "sequence_game.game_theory.solve_zero_sum_lp",
+    "sequence_game.game_theory.exploitability",
+    "sequence_game.xai.cross_graph_dt.fit_cross_graph_dt"
+  ],
+  "security_monitor": "chsh",
+  "sequence_trial_config": {
+    "attack_cache": {
+      "by_attack_kind": {
+        "edge_intercept_resend": {
+          "1": {
+            "accepted_rate": 0.0,
+            "mean_chsh_s": -0.5359569576520389,
+            "mean_delivered_count": 349.953125,
+            "mean_eve_hit_reward": 1.0,
+            "mean_qber": 0.5518916730049583,
+            "mean_wall_seconds": 9.900941425358951,
+            "samples": 64
+          },
+          "2": {
+            "accepted_rate": 0.0,
+            "mean_chsh_s": -0.5554689579534959,
+            "mean_delivered_count": 349.890625,
+            "mean_eve_hit_reward": 1.0,
+            "mean_qber": 0.5500355848456909,
+            "mean_wall_seconds": 29.88766738881327,
+            "samples": 64
+          },
+          "3": {
+            "accepted_rate": 0.0,
+            "mean_chsh_s": -0.6585510019054526,
+            "mean_delivered_count": 349.921875,
+            "mean_eve_hit_reward": 1.0,
+            "mean_qber": 0.5605239545334624,
+            "mean_wall_seconds": 55.13402306079706,
+            "samples": 64
+          },
+          "4": {
+            "accepted_rate": 0.0,
+            "mean_chsh_s": -0.6161325733265473,
+            "mean_delivered_count": 349.953125,
+            "mean_eve_hit_reward": 1.0,
+            "mean_qber": 0.5545334432162311,
+            "mean_wall_seconds": 79.06423617475048,
+            "samples": 64
+          },
+          "5": {
+            "accepted_rate": 0.0,
+            "mean_chsh_s": -0.587641505051267,
+            "mean_delivered_count": 349.84375,
+            "mean_eve_hit_reward": 1.0,
+            "mean_qber": 0.5489622125591259,
+            "mean_wall_seconds": 125.98487496189182,
+            "samples": 64
+          },
+          "6": {
+            "accepted_rate": 0.0,
+            "mean_chsh_s": -0.5171991342140068,
+            "mean_delivered_count": 349.75,
+            "mean_eve_hit_reward": 1.0,
+            "mean_qber": 0.5464173732750999,
+            "mean_wall_seconds": 159.0367874789672,
+            "samples": 64
+          },
+          "7": {
+            "accepted_rate": 0.0,
+            "mean_chsh_s": -0.5334558600833615,
+            "mean_delivered_count": 349.65625,
+            "mean_eve_hit_reward": 1.0,
+            "mean_qber": 0.5471585841046973,
+            "mean_wall_seconds": 212.98617264621748,
+            "samples": 64
+          }
+        },
+        "memory_degradation": {
+          "2": {
+            "accepted_rate": 0.0,
+            "mean_chsh_s": 1.2680061004794174,
+            "mean_delivered_count": 349.984375,
+            "mean_eve_hit_reward": 1.0,
+            "mean_qber": 0.27436432885728473,
+            "mean_wall_seconds": 25.345327499187988,
+            "samples": 64
+          },
+          "3": {
+            "accepted_rate": 0.0,
+            "mean_chsh_s": 1.1917599537000512,
+            "mean_delivered_count": 349.9375,
+            "mean_eve_hit_reward": 1.0,
+            "mean_qber": 0.28446090920410855,
+            "mean_wall_seconds": 50.20781840877976,
+            "samples": 64
+          },
+          "4": {
+            "accepted_rate": 0.0,
+            "mean_chsh_s": 1.1466825975008015,
+            "mean_delivered_count": 349.984375,
+            "mean_eve_hit_reward": 1.0,
+            "mean_qber": 0.29175317636577847,
+            "mean_wall_seconds": 82.07824165173383,
+            "samples": 64
+          },
+          "5": {
+            "accepted_rate": 0.0,
+            "mean_chsh_s": 1.1918529659390904,
+            "mean_delivered_count": 349.8125,
+            "mean_eve_hit_reward": 1.0,
+            "mean_qber": 0.3005774241158977,
+            "mean_wall_seconds": 128.00583819087637,
+            "samples": 64
+          },
+          "6": {
+            "accepted_rate": 0.0,
+            "mean_chsh_s": 1.2149689946599422,
+            "mean_delivered_count": 349.828125,
+            "mean_eve_hit_reward": 1.0,
+            "mean_qber": 0.29497085727756084,
+            "mean_wall_seconds": 172.91748931789084,
+            "samples": 64
+          },
+          "7": {
+            "accepted_rate": 0.0,
+            "mean_chsh_s": 1.162543362831674,
+            "mean_delivered_count": 349.875,
+            "mean_eve_hit_reward": 1.0,
+            "mean_qber": 0.3043744824838847,
+            "mean_wall_seconds": 233.69034216673435,
+            "samples": 64
+          }
+        }
+      },
+      "exists": true,
+      "path": "/home/brennan/PycharmProjects/SeQUeNCe/sequence_game/experiments/exp3_sequence/attack_baselines.sqlite",
+      "sample_count": 832,
+      "target_index_counts": {
+        "edge_intercept_resend": {
+          "1": {
+            "0": 64
+          },
+          "2": {
+            "0": 32,
+            "1": 32
+          },
+          "3": {
+            "0": 22,
+            "1": 21,
+            "2": 21
+          },
+          "4": {
+            "0": 16,
+            "1": 16,
+            "2": 16,
+            "3": 16
+          },
+          "5": {
+            "0": 13,
+            "1": 13,
+            "2": 13,
+            "3": 13,
+            "4": 12
+          },
+          "6": {
+            "0": 11,
+            "1": 11,
+            "2": 11,
+            "3": 11,
+            "4": 10,
+            "5": 10
+          },
+          "7": {
+            "0": 10,
+            "1": 9,
+            "2": 9,
+            "3": 9,
+            "4": 9,
+            "5": 9,
+            "6": 9
+          }
+        },
+        "memory_degradation": {
+          "2": {
+            "0": 64
+          },
+          "3": {
+            "0": 32,
+            "1": 32
+          },
+          "4": {
+            "0": 22,
+            "1": 21,
+            "2": 21
+          },
+          "5": {
+            "0": 16,
+            "1": 16,
+            "2": 16,
+            "3": 16
+          },
+          "6": {
+            "0": 13,
+            "1": 13,
+            "2": 13,
+            "3": 13,
+            "4": 12
+          },
+          "7": {
+            "0": 11,
+            "1": 11,
+            "2": 11,
+            "3": 11,
+            "4": 10,
+            "5": 10
+          }
+        }
+      }
+    },
+    "attack_cache_db_path": "/home/brennan/PycharmProjects/SeQUeNCe/sequence_game/experiments/exp3_sequence/attack_baselines.sqlite",
+    "baseline_cache": {
+      "by_hop": {
+        "1": {
+          "accepted_rate": 0.71875,
+          "mean_chsh_s": 2.7495489543367215,
+          "mean_delivered_count": 350.0,
+          "mean_wall_seconds": 6.409485309312416,
+          "samples": 64
+        },
+        "2": {
+          "accepted_rate": 0.859375,
+          "mean_chsh_s": 2.6915752002135562,
+          "mean_delivered_count": 350.0,
+          "mean_wall_seconds": 23.966350856156325,
+          "samples": 64
+        },
+        "3": {
+          "accepted_rate": 0.765625,
+          "mean_chsh_s": 2.622508059295889,
+          "mean_delivered_count": 349.984375,
+          "mean_wall_seconds": 46.26919237560941,
+          "samples": 64
+        },
+        "4": {
+          "accepted_rate": 0.78125,
+          "mean_chsh_s": 2.5400151693419453,
+          "mean_delivered_count": 349.96875,
+          "mean_wall_seconds": 70.33867661893747,
+          "samples": 64
+        },
+        "5": {
+          "accepted_rate": 0.703125,
+          "mean_chsh_s": 2.4340875587679225,
+          "mean_delivered_count": 349.859375,
+          "mean_wall_seconds": 117.18585578671875,
+          "samples": 64
+        },
+        "6": {
+          "accepted_rate": 0.703125,
+          "mean_chsh_s": 2.3810145284956272,
+          "mean_delivered_count": 349.8125,
+          "mean_wall_seconds": 151.08814471856257,
+          "samples": 64
+        },
+        "7": {
+          "accepted_rate": 0.6875,
+          "mean_chsh_s": 2.371374027834808,
+          "mean_delivered_count": 349.59375,
+          "mean_wall_seconds": 191.32668835975,
+          "samples": 64
+        }
+      },
+      "exists": true,
+      "path": "sequence_game/experiments/exp3_sequence/baselines_fidelity_0p98.sqlite",
+      "sample_count": 448
+    },
+    "baseline_cache_db_path": "sequence_game/experiments/exp3_sequence/baselines_fidelity_0p98.sqlite",
+    "end_time_ps": 1001000000,
+    "memory_pairs_per_trial": 350,
+    "min_key_pairs": 1,
+    "qber_threshold": 0.15,
+    "request_fidelity": 0.01,
+    "sequence_memory_fidelity_override": 1.0,
+    "start_time_ps": 1000000,
+    "stop_time_ps": 1251000000
+  },
+  "trials_per_cell": 16,
+  "wall_seconds": 8886.013586565,
+  "workers": 12
+}

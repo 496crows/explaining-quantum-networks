@@ -1,0 +1,3 @@
+[submodule "sequence-toolbox-SeQUeNCe"]
+	path = sequence-toolbox-SeQUeNCe
+	url = https://github.com/sequence-toolbox/SeQUeNCe.git

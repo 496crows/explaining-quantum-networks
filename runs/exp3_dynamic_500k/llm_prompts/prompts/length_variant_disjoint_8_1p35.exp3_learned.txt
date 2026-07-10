@@ -1,0 +1,155 @@
+You are interpreting one graph from a SeQUeNCe-based adversarial quantum-network game.
+
+This is a learned-strategy Exp3 interpretation prompt. Interpret only the learned time-averaged Exp3 strategy, empirical strategy probabilities, exploitability
+diagnostic, and DT evidence below. Do not claim a cryptographic security proof,
+deployment guarantee, unmeasured physics, or guarantees beyond these cached
+simulator outputs.
+
+## Requested output
+Write a concise Markdown response with exactly these sections:
+1. **Graph interpretation**: explain the learned Exp3 behavior on this graph.
+2. **Decision-tree evidence**: explain the active DT evidence in plain English.
+3. **Eve/Alice learned strategy evidence**: explain selected/high-probability learned Eve actions and Alice routes, while keeping diagnostic rows separate.
+4. **Caveats**: mention DT fidelity/R2, post-hoc in-sample scope, and no cryptographic security proof.
+5. **Rubric self-check**: one line each for target awareness, path faithfulness, feature interpretation, and no hallucinated science.
+
+Keep the response under 300 words. Use only facts, labels, and numbers present
+in this prompt. If evidence is weak, say it is weak.
+When a direct strategy probability and a DT leaf prediction disagree, report
+the disagreement instead of forcing them to agree.
+Rows with strategy probability > 0 are selected/high-probability rows. Rows
+with strategy probability = 0 are diagnostic comparison rows and must not be
+described as selected actions or selected routes.
+
+## Experiment scope
+- Backend: sequence_repeater_e91
+- Security monitor: chsh
+- Trials per payoff cell: 16
+- Online turns per condition: 500000
+- Interpretation scope: post-hoc, in-sample DT explanation over cached simulator outputs; not a cryptographic security proof.
+
+## Graph identity
+- Prompt index: 30 of 50
+- graph_id: length_variant_disjoint_8_1p35
+- family: length_variant
+- alice: a
+- bob: b
+- route_count: 8
+- learned_final_retention target value: 0.99824
+- learned_strategy_exploitability_diagnostic: 0.0085665
+
+## Learned family context
+- family_count: 6
+- learned_family_retention_mean: 0.988667
+- learned_family_retention_min: 0.846987
+- learned_family_retention_max: 1.0904
+
+## Graph structural features
+- bottleneck_node_count: 0
+- edge_disjoint_paths: 8
+- longest_hops: 2
+- max_route_overlap: 0
+- mean_edge_length_m: 603.281
+- mean_route_length_m: 825
+- node_disjoint_paths: 8
+- num_edges: 16
+- num_nodes: 10
+- num_routes: 8
+- route_hop_ratio: 1
+- shortest_hops: 2
+
+## Compact topology edges
+- e0: a--r0 length_m=641.25 eve_eligible=True
+- e1: r0--b length_m=641.25 eve_eligible=True
+- e2: a--r1 length_m=540 eve_eligible=True
+- e3: r1--b length_m=540 eve_eligible=True
+- e4: a--r2 length_m=607.5 eve_eligible=True
+- e5: r2--b length_m=607.5 eve_eligible=True
+- e6: a--r3 length_m=675 eve_eligible=True
+- e7: r3--b length_m=675 eve_eligible=True
+- e8: a--r4 length_m=573.75 eve_eligible=True
+- e9: r4--b length_m=573.75 eve_eligible=True
+- e10: a--r5 length_m=641.25 eve_eligible=True
+- e11: r5--b length_m=641.25 eve_eligible=True
+- e12: a--r6 length_m=540 eve_eligible=True
+- e13: r6--b length_m=540 eve_eligible=True
+- e14: a--r7 length_m=607.5 eve_eligible=True
+- e15: r7--b length_m=607.5 eve_eligible=True
+
+## Learned final-retention decision tree
+- target: learned_final_retention
+- R2: 0.9836
+- rows/topologies: 50/50
+- active leaf for this graph: IF node_disjoint_paths > 1.500 AND node_disjoint_paths > 6.000 AND num_edges <= 24.000 -> predicted_avg=0.979 (training_rows=3)
+
+Full learned-final-retention DT rules:
+IF node_disjoint_paths <= 1.500 AND num_edges <= 19.000 AND num_nodes <= 10.500
+  -> avg_exp3_final_retention = 0.005  (n=10)
+
+IF node_disjoint_paths <= 1.500 AND num_edges <= 19.000 AND num_nodes > 10.500
+  -> avg_exp3_final_retention = 0.010  (n=4)
+
+IF node_disjoint_paths <= 1.500 AND num_edges > 19.000 AND num_nodes <= 32.000
+  -> avg_exp3_final_retention = 0.013  (n=7)
+
+IF node_disjoint_paths <= 1.500 AND num_edges > 19.000 AND num_nodes > 32.000
+  -> avg_exp3_final_retention = 0.022  (n=2)
+
+IF node_disjoint_paths > 1.500 AND node_disjoint_paths <= 6.000 AND edge_disjoint_paths <= 2.500
+  -> avg_exp3_final_retention = 0.541  (n=6)
+
+IF node_disjoint_paths > 1.500 AND node_disjoint_paths <= 6.000 AND edge_disjoint_paths > 2.500
+  -> avg_exp3_final_retention = 0.730  (n=14)
+
+IF node_disjoint_paths > 1.500 AND node_disjoint_paths > 6.000 AND num_edges <= 24.000
+  -> avg_exp3_final_retention = 0.979  (n=3)
+
+IF node_disjoint_paths > 1.500 AND node_disjoint_paths > 6.000 AND num_edges > 24.000
+  -> avg_exp3_final_retention = 1.097  (n=4)
+
+## Eve learned-strategy decision-tree evidence
+- Eve learned-strategy tree target: learned_eve_strategy_probability ; R2=0.682
+- The rows below are top learned Eve empirical strategy rows for this graph. Zero-probability rows are diagnostic comparison rows only.
+
+- action_id=edge_intercept_resend:b-r6 ; row_role=selected/high-probability learned Eve action ; learned_eve_strategy_probability=0.105882 ; expected_denial=0.34375 ; active_hit_sample_count=16 ; active_hit_accepted_rate=0 ; active_hit_mean_chsh_s=-0.551231 ; active_hit_mean_qber=0.540125
+  features: is_no_attack=0, is_edge_intercept_resend=1, is_memory_degradation=0, target_route_coverage=0.125, target_is_bottleneck=0, num_routes=8, node_disjoint_paths=8
+  strategy-probability DT leaf: IF target_route_coverage <= 0.875 AND node_disjoint_paths > 1.500 AND target_route_coverage <= 0.234 -> predicted_avg=0.017 (training_rows=456)
+- action_id=edge_intercept_resend:b-r5 ; row_role=selected/high-probability learned Eve action ; learned_eve_strategy_probability=0.091244 ; expected_denial=0.34375 ; active_hit_sample_count=16 ; active_hit_accepted_rate=0 ; active_hit_mean_chsh_s=-0.51889 ; active_hit_mean_qber=0.553225
+  features: is_no_attack=0, is_edge_intercept_resend=1, is_memory_degradation=0, target_route_coverage=0.125, target_is_bottleneck=0, num_routes=8, node_disjoint_paths=8
+  strategy-probability DT leaf: IF target_route_coverage <= 0.875 AND node_disjoint_paths > 1.500 AND target_route_coverage <= 0.234 -> predicted_avg=0.017 (training_rows=456)
+- action_id=edge_intercept_resend:b-r1 ; row_role=selected/high-probability learned Eve action ; learned_eve_strategy_probability=0.072026 ; expected_denial=0.34375 ; active_hit_sample_count=16 ; active_hit_accepted_rate=0 ; active_hit_mean_chsh_s=-0.638749 ; active_hit_mean_qber=0.543386
+  features: is_no_attack=0, is_edge_intercept_resend=1, is_memory_degradation=0, target_route_coverage=0.125, target_is_bottleneck=0, num_routes=8, node_disjoint_paths=8
+  strategy-probability DT leaf: IF target_route_coverage <= 0.875 AND node_disjoint_paths > 1.500 AND target_route_coverage <= 0.234 -> predicted_avg=0.017 (training_rows=456)
+- action_id=edge_intercept_resend:a-r3 ; row_role=selected/high-probability learned Eve action ; learned_eve_strategy_probability=0.071698 ; expected_denial=0.34375 ; active_hit_sample_count=16 ; active_hit_accepted_rate=0 ; active_hit_mean_chsh_s=-0.601752 ; active_hit_mean_qber=0.545038
+  features: is_no_attack=0, is_edge_intercept_resend=1, is_memory_degradation=0, target_route_coverage=0.125, target_is_bottleneck=0, num_routes=8, node_disjoint_paths=8
+  strategy-probability DT leaf: IF target_route_coverage <= 0.875 AND node_disjoint_paths > 1.500 AND target_route_coverage <= 0.234 -> predicted_avg=0.017 (training_rows=456)
+- action_id=edge_intercept_resend:b-r4 ; row_role=selected/high-probability learned Eve action ; learned_eve_strategy_probability=0.064514 ; expected_denial=0.34375 ; active_hit_sample_count=16 ; active_hit_accepted_rate=0 ; active_hit_mean_chsh_s=-0.536906 ; active_hit_mean_qber=0.548569
+  features: is_no_attack=0, is_edge_intercept_resend=1, is_memory_degradation=0, target_route_coverage=0.125, target_is_bottleneck=0, num_routes=8, node_disjoint_paths=8
+  strategy-probability DT leaf: IF target_route_coverage <= 0.875 AND node_disjoint_paths > 1.500 AND target_route_coverage <= 0.234 -> predicted_avg=0.017 (training_rows=456)
+
+## Alice learned-route decision-tree evidence
+- Alice learned-route tree target: learned_alice_strategy_probability ; R2=0.6383
+- Alice learned-route tree R2 is 0.6383; report this DT fidelity with the caveats.
+- The rows below are top learned Alice empirical strategy rows for this graph. Zero-probability rows are diagnostic comparison rows only.
+
+- route_id=route-2abeba7ffb994f36 ; row_role=selected/high-probability learned Alice route ; path=a -> r3 -> b ; learned_alice_strategy_probability=0.130848 ; no_attack_key_rate=0.75 ; worst_case_key_rate=0
+  features: hop_count=2, length_m=825, length_over_shortest=1, internal_node_count=1, contains_bottleneck=0, node_disjoint_paths=8, mean_overlap_with_other_routes=0
+  route DT leaf: IF mean_overlap_with_other_routes <= 1.016 AND node_disjoint_paths > 2.500 AND length_m <= 2262.500 -> predicted_avg=0.077 (training_rows=207)
+- route_id=route-e62d504221f3ca8a ; row_role=selected/high-probability learned Alice route ; path=a -> r7 -> b ; learned_alice_strategy_probability=0.130528 ; no_attack_key_rate=0.75 ; worst_case_key_rate=0
+  features: hop_count=2, length_m=825, length_over_shortest=1, internal_node_count=1, contains_bottleneck=0, node_disjoint_paths=8, mean_overlap_with_other_routes=0
+  route DT leaf: IF mean_overlap_with_other_routes <= 1.016 AND node_disjoint_paths > 2.500 AND length_m <= 2262.500 -> predicted_avg=0.077 (training_rows=207)
+- route_id=route-67772416bf9c6d82 ; row_role=selected/high-probability learned Alice route ; path=a -> r1 -> b ; learned_alice_strategy_probability=0.127138 ; no_attack_key_rate=0.75 ; worst_case_key_rate=0
+  features: hop_count=2, length_m=825, length_over_shortest=1, internal_node_count=1, contains_bottleneck=0, node_disjoint_paths=8, mean_overlap_with_other_routes=0
+  route DT leaf: IF mean_overlap_with_other_routes <= 1.016 AND node_disjoint_paths > 2.500 AND length_m <= 2262.500 -> predicted_avg=0.077 (training_rows=207)
+- route_id=route-0e2a3cc5bc5cef75 ; row_role=selected/high-probability learned Alice route ; path=a -> r4 -> b ; learned_alice_strategy_probability=0.125956 ; no_attack_key_rate=0.75 ; worst_case_key_rate=0
+  features: hop_count=2, length_m=825, length_over_shortest=1, internal_node_count=1, contains_bottleneck=0, node_disjoint_paths=8, mean_overlap_with_other_routes=0
+  route DT leaf: IF mean_overlap_with_other_routes <= 1.016 AND node_disjoint_paths > 2.500 AND length_m <= 2262.500 -> predicted_avg=0.077 (training_rows=207)
+- route_id=route-e74c5cbdc7c92151 ; row_role=selected/high-probability learned Alice route ; path=a -> r5 -> b ; learned_alice_strategy_probability=0.12497 ; no_attack_key_rate=0.75 ; worst_case_key_rate=0
+  features: hop_count=2, length_m=825, length_over_shortest=1, internal_node_count=1, contains_bottleneck=0, node_disjoint_paths=8, mean_overlap_with_other_routes=0
+  route DT leaf: IF mean_overlap_with_other_routes <= 1.016 AND node_disjoint_paths > 2.500 AND length_m <= 2262.500 -> predicted_avg=0.077 (training_rows=207)
+
+## Target definitions
+- learned_final_retention: final-window retention reported by the Exp3-vs-Exp3 run for this graph.
+- learned_eve_strategy_probability: time-averaged empirical probability assigned to an Eve action by the learned Exp3 strategy.
+- learned_alice_strategy_probability: time-averaged empirical probability assigned to a route by the learned Exp3 strategy.
+- learned_strategy_exploitability_diagnostic: empirical Nash-gap/exploitability diagnostic for the learned profile on the payoff matrix; lower means closer to equilibrium.

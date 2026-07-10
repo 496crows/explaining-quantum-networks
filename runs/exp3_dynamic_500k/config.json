@@ -1,0 +1,99 @@
+{
+  "backend": "sequence_repeater_e91",
+  "config": {
+    "action_kinds": [
+      "edge_intercept_resend",
+      "memory_degradation"
+    ],
+    "alice_acceptance_rule": "chsh_only",
+    "alice_exp3_eta_c": 1.0,
+    "alice_exp3_gamma": 0.07,
+    "alice_exp3_gamma_max": 0.2,
+    "alice_exp3_t0": 10000.0,
+    "alice_key_rate_shaping_weight": 0.0,
+    "attack_cache_db_path": "/home/brennan/PycharmProjects/SeQUeNCe/sequence_game/experiments/exp3_sequence/attack_baselines.sqlite",
+    "attack_payoff_samples_per_route": 16,
+    "baseline_cache_db_path": "sequence_game/experiments/exp3_sequence/baselines_fidelity_0p98.sqlite",
+    "baseline_health_accept_rate_warn": 0.34,
+    "baseline_health_min_accepted_trials": 1,
+    "baseline_health_min_chsh_s": 2.1,
+    "baseline_health_min_delivered_pairs": 319,
+    "baseline_health_routes_per_graph": 3,
+    "baseline_health_trials_per_route": 16,
+    "cautious_greedy_avoidance_horizon": 1,
+    "chsh_pairs_per_trial": 350,
+    "ci_half_width_warn": 0.1,
+    "conditions": [
+      {
+        "alice": "exp3_bandit",
+        "eve": "exp3_bandit",
+        "key": "exp3_vs_exp3"
+      },
+      {
+        "alice": "oracle",
+        "eve": "oracle",
+        "key": "oracle_vs_oracle"
+      }
+    ],
+    "corpus_db_path": "/home/brennan/PycharmProjects/SeQUeNCe/sequence_game/experiments/exp3_sequence/corpus.sqlite",
+    "dt_max_depth": 3,
+    "end_time_ps": 1001000000,
+    "eve_exp3_eta_c": 1.0,
+    "eve_exp3_gamma": 0.07,
+    "eve_exp3_gamma_max": 0.2,
+    "eve_exp3_t0": 10000.0,
+    "exp3_gamma": {
+      "alice": 0.07,
+      "eve": 0.07
+    },
+    "exp3_schedule": {
+      "alice": {
+        "eta_c": 1.0,
+        "gamma_max": 0.2,
+        "t0": 10000.0
+      },
+      "eve": {
+        "eta_c": 1.0,
+        "gamma_max": 0.2,
+        "t0": 10000.0
+      },
+      "mode": "anytime"
+    },
+    "exp3_schedule_mode": "anytime",
+    "max_graphs": 50,
+    "min_key_pairs": 1,
+    "online_final_window": 25000,
+    "online_step_record_stride": 500,
+    "online_turns": 500000,
+    "out_dir": "runs/exp3_dynamic_500k",
+    "qber_pairs_per_trial": 8,
+    "qber_threshold": 0.15,
+    "request_fidelity": 0.01,
+    "security_monitor": "chsh",
+    "seed": 42,
+    "sequence_memory_fidelity_override": 1.0,
+    "sequence_setup_traversals": 12.0,
+    "start_time_ps": 1000000,
+    "stop_time_ps": 1251000000,
+    "swapping_degradation": 1.0,
+    "swapping_success_prob": 1.0,
+    "trials_per_cell": 16,
+    "workers": 12
+  },
+  "repo": {
+    "git_commit": "9c51aee1ca441d849427e17d1fcd88265822baf1",
+    "git_status_short": ""
+  },
+  "reused_components": [
+    "sequence_game.experiments.exp3_sequence.corpus.load_graph_cases_from_sqlite",
+    "sequence_game.corpus.runner.corpus_candidate_routes (fixed corpus artifact build)",
+    "sequence_game.protocol.repeater_trial.run_fixed_repeater_chsh_trial",
+    "sequence_game.protocol.repeater_trial.run_fixed_repeater_e91_trial",
+    "sequence_game.corpus.e91_runtime_game._default_models",
+    "sequence_game.corpus.e91_runtime_game._multiplexed_memory_efficiency",
+    "sequence_game.game_theory.Exp3",
+    "sequence_game.game_theory.solve_zero_sum_lp",
+    "sequence_game.game_theory.exploitability",
+    "sequence_game.xai.cross_graph_dt.fit_cross_graph_dt"
+  ]
+}
